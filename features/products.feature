@@ -38,3 +38,11 @@ Scenario: Create a Product
     And I should see "True" in the "Available" dropdown
     And I should see "Tools" in the "Category" dropdown
     And I should see "34.95" in the "Price" field
+
+Scenario: Read a Product by ID
+    Given a product with the name "Hat" exists
+    When I visit the "Home Page"
+    And I search for the product "Hat"
+    Then I should see the details for "Hat"
+        | description     | price   | available | category   |
+        | A red fedora    | 59.95   | True      | CLOTHS     |
